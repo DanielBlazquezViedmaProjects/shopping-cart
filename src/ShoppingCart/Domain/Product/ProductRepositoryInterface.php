@@ -2,7 +2,6 @@
 
 namespace Src\ShoppingCart\Domain\Product;
 
-interface ProductRepositoryInterface
-{
-
+interface ProductRepositoryInterface{
+    public function getById(int $id): ?Product;
 }

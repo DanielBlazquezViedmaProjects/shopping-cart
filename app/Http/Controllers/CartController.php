@@ -17,7 +17,6 @@ class CartController extends Controller
         $cartId = 1;
 
         $total = $this->cartUseCase->getCartTotal($cartId);
-        dd($total);
         $items = $this->cartUseCase->getItems($cartId);
         return view('cart', compact('items','total'));
     }

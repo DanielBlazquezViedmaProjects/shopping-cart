@@ -1,14 +1,22 @@
 <?php
 
-namespace Src\ShoppingCart\Domain;
+namespace Src\ShoppingCart\Domain\Cart;
 
 class Cart{
+    private $id;
     private $items;
 
-    public function __construct(){
-
+    public function __construct(int $id){
+        $this->id = $id;
         $this->items = [];
 
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int{
+        return $this->id;
     }
 
     /**
@@ -19,15 +27,14 @@ class Cart{
     }
 
     /**
-     * @param $itemId
+     * @param int $productId
      */
-    public function removeItem($itemId){
-        foreach($this->items as $key => $item){
-            if ($item->getId() === $itemId){
+    public function removeItem(int $productId){
+        foreach ($this->items as $key => $product){
+            if($product->getId() === $productId){
                 unset($this->items[$key]);
             }
         }
-
         $this->items = array_values($this->items);
     }
 
@@ -38,14 +45,4 @@ class Cart{
         return $this->items;
     }
 
-    /**
-     * @return int
-     */
-    public function getTotalPrice(){
-        $total = 0;
-        foreach ($this->items as $item){
-            $total += $item->getTotalPrice();
-        }
-        return $total;
-    }
 }

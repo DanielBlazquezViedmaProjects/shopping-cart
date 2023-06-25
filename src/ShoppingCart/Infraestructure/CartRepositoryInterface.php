@@ -2,7 +2,9 @@
 
 namespace Src\ShoppingCart\Infraestructure;
 
-class CartRepositoryInterface
-{
+use Src\ShoppingCart\Domain\Cart;
 
+class CartRepositoryInterface{
+    public function getCart(): Cart;
+    public function saveCart(Cart $cart);
 }

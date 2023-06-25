@@ -2,7 +2,6 @@
 
 namespace Src\ShoppingCart\Application;
 
-interface RemoveFromCartInterface
-{
-
+interface RemoveFromCartInterface{
+    public function removeItemFromCart(int $itemId): void;
 }

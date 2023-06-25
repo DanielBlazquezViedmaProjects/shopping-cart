@@ -2,7 +2,8 @@
 
 namespace Src\ShoppingCart\Application;
 
-interface AddToCartInterface
-{
+use Src\ShoppingCart\Domain\CartItem;
 
+interface AddToCartInterface{
+    public function addItemToCart(CartItem $article, int $quantity): void;
 }
